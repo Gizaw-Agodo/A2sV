@@ -19,4 +19,5 @@ function countingValleys(n, s) {
           let path = 0; 
           for(let i in s) {
                path += s[i];
+               //the man in the forest
           } 
