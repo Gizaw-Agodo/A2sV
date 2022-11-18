@@ -5,27 +5,29 @@
 #         self.next = next
 class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
-        length = 0
-        curr  = head
-        
+       
+        # handling an edje case
         if head == None:
             return None
         if k == 0 :
             return head
         
+        # determining the length of listNode
+        length = 0
+        curr = head
         while curr:
             length +=1
             curr = curr.next
         
+        # handling the logic
         steps = k%length
         move = length - steps
-       
         dummy1  = ListNode(0)
         dummy2  = ListNode(0)
         frontdum1 = dummy1
-        frontdum2 = dummy2
-        
+        frontdum2 = dummy2        
         curr = head 
+        
         while curr:
             if move > 0:
                 frontdum1.next = curr
