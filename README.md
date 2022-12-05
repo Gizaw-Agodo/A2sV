@@ -5,4 +5,4 @@
 A2sv solutions
 best solutions 
 for best solvers
-the man 
+
