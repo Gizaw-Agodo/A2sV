@@ -1,8 +1,8 @@
 class Solution:
     def equalPairs(self, grid: List[List[int]]) -> int:
+        
         answer = 0
         transpose = [[0]*len(grid[0]) for i in range(len(grid))]
-        
         
         # finding transpose of the original array
         for i in range(len(grid)):
