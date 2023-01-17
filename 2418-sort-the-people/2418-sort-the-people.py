@@ -1,12 +1,11 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
-        answer = [""]*len(names)
-        for i in range(len(heights)):
-            heights[i] = [heights[i],i]
-        heights.sort(key = lambda x :-x[0])
+        k = 1
+        for i in range (len(heights)):
+            for j in range(len(heights)-1):
+                if heights[j] < heights[j+1]:
+                    heights[j],heights[j+1] = heights[j+1],heights[j]
+                    names[j],names[j+1] = names[j+1],names[j]
+        return names
         
-        for i in range(len(names)):
-            height,index = heights[i]
-            
-            answer[i] = names[index]
-        return answer
+        
