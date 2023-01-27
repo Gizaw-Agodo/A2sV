@@ -8,5 +8,4 @@ class Solution:
             nums[slow] = nums[fast]
             slow+=1
             fast +=1
-        return slow     
-            
+        return slow
