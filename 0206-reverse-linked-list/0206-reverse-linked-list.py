@@ -8,11 +8,10 @@ class Solution:
         preve = None
         curr = head
         while curr:
-            next = curr.next
+            next_node = curr.next
             curr.next = preve
             preve = curr
-            curr = next
+            curr = next_node
         return preve
             
-        
             
