@@ -8,8 +8,7 @@ class Solution:
         low = 0 
         
         return self.search(matrix,low,high,target,n)
-       
-                
+          
         
     def search(self,matrix,low,high,target,n) ->bool:
         while high >= low :
