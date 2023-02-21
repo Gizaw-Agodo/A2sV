@@ -6,40 +6,31 @@
 class Solution:
     def rotateRight(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
        
-        # handling an edje case
         if head == None:
             return None
-        if k == 0 :
-            return head
+
+        # finding the length of linked list and last node
+        length = 1
+        last_node = head
+        while last_node.next:
+            length += 1
+            last_node = last_node.next
         
-        # determining the length of listNode
-        length = 0
-        curr = head
-        while curr:
-            length +=1
-            curr = curr.next
-        
-        # handling the logic
-        steps = k%length
-        move = length - steps
-        dummy1  = ListNode(0)
-        dummy2  = ListNode(0)
-        frontdum1 = dummy1
-        frontdum2 = dummy2        
-        curr = head 
-        
-        while curr:
-            if move > 0:
-                frontdum1.next = curr
-                frontdum1 = curr
-            else:
-                frontdum2.next = curr
-                frontdum2 = curr
-            move -=1
-            curr = curr.next
-        
-        frontdum1.next = None
-        frontdum2.next = dummy1.next
-        return dummy2.next
-                
+        # determing the kth node
+        k = k % length
+        steps = length - k -1 
+        dummy_node = head 
+        while steps > 0:
+            dummy_node  = dummy_node.next
+            steps -= 1
             
+        last_node.next = head
+        answer = dummy_node.next
+        dummy_node.next = None
+        
+        return answer
+       
+      
+        
+        
+        
