@@ -17,7 +17,7 @@ class Solution:
             val = v1 + v2 + carry
             carry = val // 10
             val = val % 10
-            cur.next = ListNode(val)  # as in one place we have to put a single digit
+            cur.next = ListNode(val) 
             
             # update pointers
             cur = cur.next
