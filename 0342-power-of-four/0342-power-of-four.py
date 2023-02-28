@@ -4,5 +4,5 @@ class Solution:
             return True
         elif n < 1:
             return False
-        answer = self.isPowerOfFour(n/4)
-        return answer
+        return self.isPowerOfFour(n/4)
+        
