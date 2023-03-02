@@ -1,10 +1,6 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        t_count =  len(set(t))
-        
-        if len(t)  > len(s):
-            return ""
-        
+        target_count =  len(set(t))
         dic = defaultdict(int)
         minsize = float("inf")
         target = Counter(t)
@@ -17,7 +13,7 @@ class Solution:
                 dic[s[right]] += 1
                 if  dic[s[right]] == target[s[right]]:
                     count += 1
-            while count == t_count and left <= right :
+            while count == target_count and left <= right :
                 if right-left + 1 < minsize:
                     index = [left,right]
                 minsize = min(minsize, right-left + 1 )
