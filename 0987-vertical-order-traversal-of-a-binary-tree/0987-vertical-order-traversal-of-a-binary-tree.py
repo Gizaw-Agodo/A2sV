@@ -7,16 +7,20 @@
 class Solution:
     def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
         positions = defaultdict(list)
+        # finding the coordinate of each node
         def findPosition(node,curr_pos,level):
             if node == None:
                 return 
             positions[node] = [curr_pos,level]
             findPosition(node.left,[curr_pos[0] + 1,curr_pos[1]-1],level+1)
             findPosition(node.right,[curr_pos[0] + 1,curr_pos[1]+1],level+1)
-        
         findPosition(root,[0,0],0)
+        
+        # sorting the computed positon by column -> row -> value
         pos_list = [[i,positions[i]] for i in positions]
         pos_list.sort(key = lambda x :(x[1][0][1], x[1][1],x[0].val))
+        
+        # collecting the same column values from sorted list 
         answer_dic = defaultdict(list)
         for val in pos_list:
             answer_dic[val[1][0][1]].append(val[0].val)
