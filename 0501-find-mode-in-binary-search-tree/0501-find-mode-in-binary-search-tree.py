@@ -14,13 +14,11 @@ class Solution:
             countNodes(node.left)
             countNodes(node.right)
         countNodes(root)
-        count_list = [(i,count[i]) for i in count ]
-        count_list.sort(key = lambda x: x[1], reverse = True)
+        
         answer = []
-        firstMax = count_list[0][1]
-        for key,value in count_list:
-            if value == firstMax:
+        maximum = max(count.values())
+        for key in count:
+            if count[key] == maximum:
                 answer.append(key)
-            else:
-                break
         return answer
+      
