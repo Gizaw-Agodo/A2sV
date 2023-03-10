@@ -17,16 +17,10 @@ class Solution:
                 path.pop()
                 return
                 
-            if root.left :
-                path.append(root.val)
-                backtrack(path, root.left)
-                path.pop()
-                    
-            if root.right :
-                
-                path.append(root.val)
-                backtrack(path, root.right)
-                path.pop()
+            path.append(root.val)
+            backtrack(path, root.left)
+            backtrack(path, root.right)
+            path.pop()
             
         backtrack([], root)
         return answer
