@@ -5,8 +5,10 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) :
         answer = defaultdict(list)
+        
         def findLevel(root, level):
             if root == None:
                 return 
@@ -15,10 +17,9 @@ class Solution:
             findLevel(root.right, level + 1)
         
         findLevel(root,0)
-        return answer.values()
-    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        levels = list( self.levelOrder(root))
-        for i in range(1,len(levels),2):
-            levels[i]  = levels[i][::-1]
-        return levels
+        answer = list(answer.values())
+       
+        for i in range(1,len(answer),2):
+            answer[i]  = answer[i][::-1]
+        return answer
             
