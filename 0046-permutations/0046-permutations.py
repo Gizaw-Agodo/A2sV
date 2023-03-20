@@ -13,4 +13,6 @@ class Solution:
                 combination.pop()
             
         backtrack(len(nums), [])
-        return answer
+        output = Counter([tuple(i) for i in answer])
+        return [list(key) for key in output]
+       
