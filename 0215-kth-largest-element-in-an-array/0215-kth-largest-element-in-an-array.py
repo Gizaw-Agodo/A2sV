@@ -21,6 +21,5 @@ class Solution:
             return left_ans
 
         answer = queckSort(0,len(nums))
-        print(answer)
-        return answer if answer != None else nums[-2]
+        return answer if answer != None else nums[-k]
     
