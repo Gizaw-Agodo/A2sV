@@ -1,6 +1,5 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
-         
         def generate(string, j,k):
             if len(string) == 2*n:
                 ans.append(string)
