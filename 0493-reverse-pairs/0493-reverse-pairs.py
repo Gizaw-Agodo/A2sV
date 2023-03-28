@@ -41,5 +41,4 @@ class Solution:
         
         mergeSort(0, len(nums)-1, nums)
         ans = binarySearch(0,4,[1,2,3,4,5],3)
-        print(ans)
         return answer
