@@ -10,10 +10,8 @@ class Solution:
                 return True
             visited.add(node)
             for neibhor in graph[node]:
-                if neibhor not in visited:
-                    found = dfs(graph,visited,neibhor)
-                    if found:
-                        return True
+                if neibhor not in visited and dfs(graph,visited,neibhor):
+                    return True
             return False
         return dfs(dic,set(),source)
         
