@@ -7,24 +7,21 @@ class Solution:
                     graph[i] = set()
                     
                 if i != j and isConnected[i][j]:
-                    graph[i].add(j)
-                    
+                    graph[i].add(j)            
                     
         visited = set() 
         def dfs(node):
-            
             visited.add(node)
             for neibhour in graph[node]:
                 if neibhour not in visited:
                     dfs(neibhour)
-                
-       
+                 
         count = 0
         for node in graph:
             if node not in visited:
                 dfs(node)
                 count += 1
-                    
+                
         return count
        
             
