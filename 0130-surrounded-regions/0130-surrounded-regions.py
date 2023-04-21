@@ -3,13 +3,9 @@ class Solution:
         """
         Do not return anything, modify board in-place instead.
         """
-        # temp = board.copy()
-        # for i in range(len(board)):
-        #     for j in range(len(board[0])):
-        #         board[i][j] = "X"
-        # print(temp)
         
         directions = [(1,0),(0,1),(-1,0),(0,-1)]
+        
         def isBoundary(row, col):
             if row == 0 or row == len(board)-1 or col == 0 or col == len(board[0])-1:
                 return True
