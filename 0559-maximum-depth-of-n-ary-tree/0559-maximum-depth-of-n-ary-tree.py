@@ -9,13 +9,15 @@ class Node:
 class Solution:
 
     def maxDepth(self, root: 'Node') -> int:
-        def findMax(maximum, root):
-            if not root:
-                return maximum
-         
-            maxx = maximum + 1
-            for child in root.children:
-                maxx =  max(findMax(maximum + 1, child),maxx)   
-            return maxx
-        return findMax(0, root)
+        
+        def findMax(root):
+            
+            child_max = 0
+            if root != None:
+                for child in root.children:
+                    child_max =  max(findMax(child),child_max) 
+
+                return child_max + 1
+            return child_max
+        return findMax(root)
         
