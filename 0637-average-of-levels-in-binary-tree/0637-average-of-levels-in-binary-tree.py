@@ -6,13 +6,23 @@
 #         self.right = right
 class Solution:
     def averageOfLevels(self, root: Optional[TreeNode]) -> List[float]:
-        answer = defaultdict(list)
-        def findLevel(root, level):
-            if root == None:
-                return 
-            answer[level].append(root.val)
-            findLevel(root.left, level + 1)
-            findLevel(root.right, level + 1)
-        
-        findLevel(root,0)
-        return [sum(items)/len(items) for items in answer.values()]
+
+        answer = []
+        def bfs(graph, node):
+            visited = set([node])
+            queue = deque([node])
+           
+            while queue:
+                length = len(queue)
+                total = 0
+                for i in range(length):
+                    node = queue.popleft()
+                    total += node.val
+                    if node.left:
+                        queue.append(node.left)
+                    if node.right:
+                        queue.append(node.right)
+                            
+                answer.append(total/length)
+        bfs(root,root)
+        return answer
