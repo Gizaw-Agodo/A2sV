@@ -1,7 +1,7 @@
 class Solution:
     def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
         
-        visited = set((nums1[0],nums2[0]))
+        visited = set((0,0))
         heap = [[nums1[0] + nums2[0],0,0]]
         answer = []
         
