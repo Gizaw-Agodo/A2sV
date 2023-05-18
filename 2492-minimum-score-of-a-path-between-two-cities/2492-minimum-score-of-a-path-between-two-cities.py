@@ -9,25 +9,22 @@ class Solution:
                 parent[x] = find(parent[x])
             return parent[x]
         
-        def union(x,y):
+        def union(x,y,weight):
             xroot = find(x)
             yroot = find(y)
-            childMin = min(minDistance[x],minDistance[y])
             rootMin = min(minDistance[xroot],minDistance[yroot])
             
             if size[xroot] >= size[yroot]:
                 
                 parent[yroot] = xroot
-                minDistance[xroot] = min(childMin,rootMin)
+                minDistance[xroot] = min(weight,rootMin)
                 size[xroot] += size[yroot]
             else:
                 parent[xroot] = yroot
-                minDistance[yroot] = min(childMin,rootMin)
+                minDistance[yroot] = min(weight,rootMin)
                 size[yroot] += size[xroot]
                 
         for start, end ,weight in roads:
-            minDistance[start] = min(weight,minDistance[start])
-            minDistance[end] = min(weight,minDistance[end])
-            union(start, end)
+            union(start, end,weight)
         
         return minDistance[find(1)]
