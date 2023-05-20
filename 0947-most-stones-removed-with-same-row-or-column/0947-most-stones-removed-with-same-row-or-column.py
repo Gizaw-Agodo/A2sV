@@ -28,7 +28,8 @@ class Solution:
         for x, y in stones:
             union(f'x{x}', f'y{y}')
         
-        return len(stones) - sum(parent[element] == element for element in parent)
+        unremoved = sum(parent[element] == element for element in parent)
+        return len(stones) - unremoved
 
             
             
