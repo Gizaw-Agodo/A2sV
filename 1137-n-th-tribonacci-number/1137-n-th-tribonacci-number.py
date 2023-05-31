@@ -1,11 +1,17 @@
 class Solution:
-    memo = {}
+ 
     def tribonacci(self, n: int) -> int:
-        if n == 0 :
-            return 0
-        if n== 1 or n== 2:
-            return 1
-        if n not in self.memo :
-            self.memo[n] = self.tribonacci(n-1) + self.tribonacci(n-2) + self.tribonacci(n-3)
-        return self.memo[n]
+        
+        value_0 ,value_1, value_2 = 0,1,1
+        
+        for i in range(3,n + 1):
+            temp_val_2 = value_2
+            temp_val_1 = value_1
+            
+            value_2 = value_0 + value_1 + value_2
+            value_1 = temp_val_2
+            value_0 = temp_val_1
+            
+        return value_2 if n != 0 else 0  
+
         
