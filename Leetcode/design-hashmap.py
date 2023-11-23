@@ -59,11 +59,16 @@ class MyHashMap:
         return -1
         
     def remove(self, key: int) -> None:
+        
         if key in self.dic:
             self.linkedList.removeNode(key)
             self.dic.remove(key)
         
         
+       
+        
+
+
 # Your MyHashMap object will be instantiated and called as such:
 # obj = MyHashMap()
 # obj.put(key,value)
